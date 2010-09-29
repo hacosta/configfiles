@@ -35,7 +35,7 @@ COMP_CONFINGURE_HINTS=1
 
 
 if [ "$PS1" ]; then
-  if which fortune > /dev/null; then
+  if which fortune &> /dev/null; then
       echo
       /usr/bin/fortune -ac
       echo
