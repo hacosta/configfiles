@@ -32,8 +32,6 @@ shopt -s extglob
 #completion más densa
 COMP_CONFINGURE_HINTS=1
 
-
-
 if [ "$PS1" ]; then
   if which fortune &> /dev/null; then
       echo
@@ -46,8 +44,6 @@ if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
-
-
 #variables interesantes
 export KDE_NO_IPV6="true"
 export KDE_IS_PRELINKED="true"
@@ -58,9 +54,6 @@ export HISTSIZE=1000
 export HISTFILESIZE=1000
 export LESSOPEN="|lesspipe.sh %s"
 export HISTCONTROL=ignoredups
-export QT_XFT=true
-export GDK_USE_XFT=1
-export INTEL_BATCH=1
 export DEBUG=1
 export LC_TIME=C
 
