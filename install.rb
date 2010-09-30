@@ -15,7 +15,7 @@ def create_links( overwrite=FORCE_OVERWRITE )
         new_copy = "#{ENV['HOME']}/.#{i}"
         next if EXCEPTIONS.include? i
         if overwrite || ! File.exist?(new_copy) 
-            FileUtils.ln_sf(i, new_copy)
+            FileUtils::DryRun.ln_sf(Dir.pwd + "/" + i, new_copy)
         else
             puts "File #{i} exists. Cowardly refusing to overwrite"
         end
