@@ -189,6 +189,8 @@ autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 "type ,vim to edit vimrc
 noremap ,vim :new ~/.vimrc<cr>
+noremap j gj
+noremap k gk
 inoremap <C-E> <C-X><C-E>
 inoremap <C-Y> <C-X><C-Y>
 
