@@ -46,9 +46,9 @@ set number
 
 "TODO: do this per filetype
 set tabstop=4
-set softtabstop=4
+"set softtabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab
 set wrap
 "writes on make/shell commands
 set autowrite

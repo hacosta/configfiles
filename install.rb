@@ -26,10 +26,6 @@ def strip_dashes( str )
     str[/[ -]*(.*)/,1]
 end
 
-ARGV.map! { |arg|
-    strip_dashes arg.downcase
-}
-
 def usage()
     puts "#{__FILE__} [options]"
     puts
@@ -37,6 +33,9 @@ def usage()
     puts "   -f   --force                       overwrite links"
 end
 
+ARGV.map! { |arg|
+    strip_dashes arg.downcase
+}
 
 if ARGV.size == 0
     create_links
