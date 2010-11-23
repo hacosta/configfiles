@@ -221,6 +221,10 @@ map <F4> :TlistToggle<cr>
 :ab #b /************************************************
 :ab #e ************************************************/
 
+
+vnoremap < <gv
+vnoremap > >gv
+
 " When vimrc is edited, reload it
 map <leader>e :e! ~/.vimrc<cr>
 
