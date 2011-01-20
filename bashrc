@@ -31,6 +31,7 @@ shopt -s extglob
 #set mark-symlinked-directories on
 #completion más densa
 COMP_CONFINGURE_HINTS=1
+GREP_OPTIONS="--exclude-dir=\.svn"
 
 if [ "$PS1" ]; then
   if which fortune &> /dev/null; then
