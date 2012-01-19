@@ -140,9 +140,7 @@ unset use_color safe_term
 ulimit -c 10000000
 
 
-
-#PS1-related
-host2color()
+str2color()
 {
     #'\e[0;30m' # Black - Regular
     local colors=(
@@ -162,18 +160,12 @@ host2color()
     '\e[1;36m' \
     '\e[1;37m' \
     )
-    txtrst='\e[0m'    # Text Reset
-    sum=${#colors[@]}
-    (( str_len=${#HOSTNAME} - 1 ))
+    local str_len=$(( ${#1} - 1 ))
     for i in $(seq 0 $str_len); do
-        (( sum=$(printf "%d" "'${HOSTNAME:$i:1}'") + $sum ))
+        (( sum=$(printf "%d" "'${1:$i:1}'") + ${#colors[@]} ))
     done
     (( random_color = $sum % ${#colors[@]} ))
     echo -e ${colors[$random_color]}
 }
-HOST_COLOR=$(host2color)
 
-
-
-
-PS1='[$?]\[\033[01;32m\]\u@\[$HOST_COLOR\]\h \w %\[\033[00m\] '
+PS1='[$?]\[\033[01;32m\]\u@\[$(str2color $HOSTNAME)\]\h \w %\[\033[00m\] '
