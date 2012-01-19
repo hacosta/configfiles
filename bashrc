@@ -74,7 +74,7 @@ alias shutdown='sudo shutdown'
 alias reboot='sudo reboot'
 which pacman &> /dev/null && alias pacman='sudo pacman'
 alias aurbuild='sudo aurbuild'
-alias p='pacman'
+alias p='sudo pacman'
 alias svim='sudo vim'
 alias svimdiff='sudo vimdiff'
 
