@@ -136,6 +136,12 @@ else
 
 endif " has("autocmd")
 
+"whitespace matching
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 colorscheme ir_black
 if has('gui_running')
