@@ -142,30 +142,32 @@ ulimit -c 10000000
 
 str2color()
 {
-    #'\e[0;30m' # Black - Regular
-    local colors=(
-    '\e[0;31m' \
-    '\e[0;32m' \
-    '\e[0;33m' \
-    '\e[0;34m' \
-    '\e[0;35m' \
-    '\e[0;36m' \
-    '\e[0;37m' \
-    '\e[1;30m' \
-    '\e[1;31m' \
-    '\e[1;32m' \
-    '\e[1;33m' \
-    '\e[1;34m' \
-    '\e[1;35m' \
-    '\e[1;36m' \
-    '\e[1;37m' \
-    )
-    local str_len=$(( ${#1} - 1 ))
-    for i in $(seq 0 $str_len); do
-        (( sum=$(printf "%d" "'${1:$i:1}'") + ${#colors[@]} ))
-    done
-    (( random_color = $sum % ${#colors[@]} ))
-    echo -e ${colors[$random_color]}
+	[ -z "$1" ] && return
+	#'\e[0;30m' # Black - Regular
+	local colors=(
+	'\e[0;31m' \
+		'\e[0;32m' \
+		'\e[0;33m' \
+		'\e[0;34m' \
+		'\e[0;35m' \
+		'\e[0;36m' \
+		'\e[0;37m' \
+		'\e[1;30m' \
+		'\e[1;31m' \
+		'\e[1;32m' \
+		'\e[1;33m' \
+		'\e[1;34m' \
+		'\e[1;35m' \
+		'\e[1;36m' \
+		'\e[1;37m' \
+		)
+	local str_len=$(( ${#1} - 1 ))
+	for i in $(seq 0 $str_len); do
+		(( sum=$(printf "%d" "'${1:$i:1}'") + ${#colors[@]} ))
+	done
+	(( random_color = $sum % ${#colors[@]} ))
+	echo -ne ${colors[$random_color]}
 }
 
-PS1='[$?]\[\033[01;32m\]\u@\[$(str2color $HOSTNAME)\]\h \w %\[\033[00m\] '
+colored_hostname=$(str2color $HOSTNAME)
+PS1='[$?]\[\033[01;32m\]\u@\[$colored_hostname\]\h \w\e[1;34m$(__git_ps1)$colored_hostname%\[\033[00m\] '
