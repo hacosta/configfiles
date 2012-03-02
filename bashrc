@@ -171,10 +171,8 @@ str2color()
 
 show_error_on_non_0()
 {
-	if [ $1 -ne 0 ]; then
-		echo [$1]
-	fi
+	[ $1 -ne 0 ] && echo -en "\e[1;31m[$1]"
 }
 
-colored_hostname=$(str2color $HOSTNAME)
-PS1='$(show_error_on_non_0 $?)\[\033[01;32m\]\u@\[$colored_hostname\]\h \w\e[1;34m$(__git_ps1)$colored_hostname%\[\033[00m\] '
+host_color=$(str2color $HOSTNAME)
+PS1='$(show_error_on_non_0 $?)\[\e[;032m\]\u@\[$host_color\]\h \[\e[0;34m\]$(__git_ps1)\[\e[0m\]\w\$ '
