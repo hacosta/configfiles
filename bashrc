@@ -27,9 +27,6 @@ shopt -s checkwinsize
 shopt -s extglob
 #shopt -s nullglob
 
-#para el trailing / en symlinks
-#set mark-symlinked-directories on
-#completion más densa
 COMP_CONFINGURE_HINTS=1
 GREP_OPTIONS="--exclude-dir=\.svn"
 
@@ -45,7 +42,6 @@ if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
-#variables interesantes
 export KDE_NO_IPV6="true"
 export KDE_IS_PRELINKED="true"
 export PROMPT_COMMAND='history -a'
@@ -57,6 +53,7 @@ export LESSOPEN="|lesspipe.sh %s"
 export HISTCONTROL=ignoredups
 export DEBUG=1
 export LC_TIME=C
+export PYTHONSTARTUP=~/.pythonrc.py
 
 alias grep="grep --color=auto"
 alias nano="nano -w"
