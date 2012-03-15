@@ -27,3 +27,5 @@ else:
 		pass
 	atexit.register(readline.write_history_file, histfile)
 	del os, histfile
+
+from vim import *
