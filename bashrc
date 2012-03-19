@@ -38,9 +38,11 @@ if [ "$PS1" ]; then
   fi
 fi
 
-if [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
-fi
+for i in /etc/bash_completion /usr/share/bash-completion/bash_completion; do
+	if [ -f "$i" ]; then
+		source "$i"
+	fi
+done
 
 export KDE_NO_IPV6="true"
 export KDE_IS_PRELINKED="true"
