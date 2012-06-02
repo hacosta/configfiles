@@ -87,6 +87,9 @@ set hid
 " Set to auto read when a file is changed from the outside
 set autoread
 
+"All copies go to system clipboard
+set clipboard=unnamed
+
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
