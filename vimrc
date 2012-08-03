@@ -195,10 +195,10 @@ endif " has("autocmd")
 highlight ExtraWhitespace ctermbg=red guibg=red
 "autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\| \+\ze\t/
-colorscheme jellybeans
-set background=dark
 
 if has('gui_running')
+	colorscheme jellybeans
+	set background=dark
 	set guioptions+=a
 	set guioptions+=c
 	set guioptions-=T
@@ -220,6 +220,7 @@ elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xter
 	set mouse=a
 	set ttymouse=xterm
 	set termencoding=utf-8
+	colorscheme torte
 else
 	colorscheme default
 endif
