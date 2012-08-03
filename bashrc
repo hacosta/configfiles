@@ -31,7 +31,7 @@ COMP_CONFINGURE_HINTS=1
 GREP_OPTIONS="--exclude-dir=\.svn"
 
 if [ "$PS1" ]; then
-	task long 2> /dev/null
+	fortune -c
 fi
 
 for i in /etc/bash_completion /usr/share/bash-completion/bash_completion; do
@@ -169,5 +169,14 @@ show_error_on_non_0()
 	[ $1 -ne 0 ] && printf [$1]
 }
 
+rsync_inc()
+{
+	echo This will delete files that do not exist in $2. Press Crtl-C to cancel
+	read
+	rsync --modify-window=1 --progress -vaz --delete $1/ $2
+}
+
 host_color=$(str2color $HOSTNAME)
 PS1='\[\e[1;31m\]$(show_error_on_non_0 $?)\[\e[;032m\]\u@\[$host_color\]\h \[\e[0;34m\]$(__git_ps1 2> /dev/null)\[\e[0m\]\w\$ '
+TOMCAT_USER=hacosta
+JSVC=/usr/bin/jsvc

@@ -39,6 +39,9 @@ set smartcase
 " Set 2 of context
 set scrolloff=2
 
+" Don't redraw while executing macros
+set lazyredraw
+
 " Show nifty menu
 set wildmenu
 set wildmode=longest:full,full
@@ -53,7 +56,11 @@ set noexpandtab
 " saves on make/shell commands
 set autowrite
 
-set backspace=indent,eol,start
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
 "Show matching bracets when text indicator is over them
 set showmatch
 
@@ -186,33 +193,35 @@ endif " has("autocmd")
 " Show trailing whitespace and spaces before a tab must be done before setting
 " the color scheme
 highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\| \+\ze\t/
-colorscheme ir_black
+colorscheme jellybeans
+set background=dark
 
 if has('gui_running')
-    set guioptions+=a
-    set guioptions+=c
-    set guioptions-=T
-    set guioptions-=e
-    set guioptions-=m
-    set guioptions-=r
+	set guioptions+=a
+	set guioptions+=c
+	set guioptions-=T
+	set guioptions-=e
+	set guioptions-=m
+	set guioptions-=r
 	set guifont=
-    "TODO check if colorscheme exists
-    if has('win32')
-        set columns=120
-        set lines=60
-        set guifont=Consolas\ 11
-    else
-        set guifont=Droid\ Sans\ Mono\ 10
-    endif
+	"TODO check if colorscheme exists
+	if has('win32')
+		set columns=120
+		set lines=60
+		set guifont=Consolas\ 11
+	else
+		set encoding=utf-8
+		set guifont=Droid\ Sans\ Mono\ 10
+	endif
 elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xterm') || (&term =~ '^screen-256')
-    set t_Co=256
-    set mouse=a
-    set ttymouse=xterm
-    set termencoding=utf-8
+	set t_Co=256
+	set mouse=a
+	set ttymouse=xterm
+	set termencoding=utf-8
 else
-    colorscheme default
+	colorscheme default
 endif
 
 
