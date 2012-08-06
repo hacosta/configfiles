@@ -210,10 +210,10 @@ if has('gui_running')
 	if has('win32')
 		set columns=120
 		set lines=60
-		set guifont=Consolas\ 11
+		set guifont=Consolas\ 10
 	else
 		set encoding=utf-8
-		set guifont=Droid\ Sans\ Mono\ 10
+		set guifont=Droid\ Sans\ Mono\ 8
 	endif
 elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xterm') || (&term =~ '^screen-256')
 	set t_Co=256
