@@ -31,7 +31,7 @@ COMP_CONFINGURE_HINTS=1
 GREP_OPTIONS="--exclude-dir=\.svn"
 
 if [ "$PS1" ]; then
-	fortune -c
+	which fortune &> /dev/null && fortune -c
 fi
 
 for i in /etc/bash_completion /usr/share/bash-completion/bash_completion; do
