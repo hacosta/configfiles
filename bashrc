@@ -164,6 +164,21 @@ str2color()
 	echo -ne ${colors[$random_color]}
 }
 
+if command -v reptyr &> /dev/null; then
+	attach()
+	{
+		proc="$1"
+		[[ -z "$proc" ]] && return 1
+		if [[ "$proc" =~ ^[0-9]+$ ]]; then
+			reptyr $1
+		elif kill -0 $(pidof $proc) &> /dev/null; then
+			reptyr $(pidof $proc)
+		else
+			return 1
+		fi
+	}
+fi
+
 show_error_on_non_0()
 {
 	[ $1 -ne 0 ] && printf [$1]
