@@ -41,7 +41,6 @@ for i in /etc/bash_completion /usr/share/bash-completion/bash_completion; do
 done
 
 export KDE_NO_IPV6="true"
-export KDE_IS_PRELINKED="true"
 export PROMPT_COMMAND='history -a'
 export HISTCONTROL="ignoredups"
 export EDITOR="vim"
