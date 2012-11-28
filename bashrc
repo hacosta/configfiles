@@ -202,5 +202,4 @@ DEBEMAIL="Héctor Acosta <hector.acosta@gazzang.com>"
 DEBFULLNAME="Héctor Acosta"
 host_color=$(str2color $HOSTNAME)
 PS1='\[\e[1;31m\]$(show_error_on_non_0 $?)\[\e[;032m\]\u@\[$host_color\]\h \[\e[0;34m\]$(__git_ps1 2> /dev/null)\[\e[0m\]\w\$ '
-TOMCAT_USER=hacosta
-JSVC=/usr/bin/jsvc
+
