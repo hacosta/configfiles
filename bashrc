@@ -51,6 +51,7 @@ export HISTCONTROL=ignoredups
 export DEBUG=1
 export LC_TIME=C
 export PYTHONSTARTUP=~/.pythonrc.py
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dcom.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 
 alias grep="grep --color=auto"
 alias nano="nano -w"
@@ -197,6 +198,8 @@ rsync_inc()
 	rsync --modify-window=1 --progress -vaz --delete $1/ $2
 }
 
+DEBEMAIL="Héctor Acosta <hector.acosta@gazzang.com>"
+DEBFULLNAME="Héctor Acosta"
 host_color=$(str2color $HOSTNAME)
 PS1='\[\e[1;31m\]$(show_error_on_non_0 $?)\[\e[;032m\]\u@\[$host_color\]\h \[\e[0;34m\]$(__git_ps1 2> /dev/null)\[\e[0m\]\w\$ '
 TOMCAT_USER=hacosta
