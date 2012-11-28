@@ -192,20 +192,14 @@ endif " has("autocmd")
 
 " Show trailing whitespace and spaces before a tab must be done before setting
 " the color scheme
-highlight ExtraWhitespace ctermbg=red guibg=red
-"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$\| \+\ze\t/
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
 if has('gui_running')
-	colorscheme jellybeans
-	set background=dark
-	set guioptions+=a
-	set guioptions+=c
-	set guioptions-=T
-	set guioptions-=e
-	set guioptions-=m
-	set guioptions-=r
+	colorscheme solarized
 	set guifont=
+	set guioptions+=lrbmTLce
+	set guioptions-=lrbmTLce
+	set guioptions+=c
 	"TODO check if colorscheme exists
 	if has('win32')
 		set columns=120
@@ -220,7 +214,7 @@ elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xter
 	set mouse=a
 	set ttymouse=xterm
 	set termencoding=utf-8
-	colorscheme torte
+	colorscheme solarized
 else
 	colorscheme default
 endif
