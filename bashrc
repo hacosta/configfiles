@@ -177,6 +177,14 @@ if command -v reptyr &> /dev/null; then
 	}
 fi
 
+__git_ps1 ()
+{
+	local b="$(git symbolic-ref HEAD 2>/dev/null)";
+	if [ -n "$b" ]; then
+		printf " (%s)" "${b##refs/heads/}";
+	fi
+}
+
 show_error_on_non_0()
 {
 	[ $1 -ne 0 ] && printf [$1]
