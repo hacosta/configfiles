@@ -194,8 +194,9 @@ endif " has("autocmd")
 " the color scheme
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
+set background=dark
 if has('gui_running')
-	colorscheme solarized
+	colorscheme jellybeans
 	set guifont=
 	set guioptions+=lrbmTLce
 	set guioptions-=lrbmTLce
@@ -214,7 +215,7 @@ elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xter
 	set mouse=a
 	set ttymouse=xterm
 	set termencoding=utf-8
-	colorscheme solarized
+	colorscheme jellybeans
 else
 	colorscheme default
 endif
