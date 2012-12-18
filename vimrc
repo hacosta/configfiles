@@ -83,8 +83,6 @@ set timeoutlen=500
 "set linebreak
 set wrap
 
-" cd follows buffer
-autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 " Keybinding to be able to press f5 to enter copy mode
 set pastetoggle=<f5>
