@@ -7,3 +7,6 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "vim/bundle/rainbow-paren"]
+	path = vim/bundle/rainbow-paren
+	url = git://github.com/kien/rainbow_parentheses.vim.git
