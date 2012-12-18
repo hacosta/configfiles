@@ -160,8 +160,7 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 "Should be done before filetype detection
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
