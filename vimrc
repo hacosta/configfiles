@@ -112,6 +112,7 @@ set clipboard=unnamed
 
 " type ,vim to edit vimrc
 noremap ,vim :new ~/.vimrc<cr>
+noremap ,n :NERDTree<cr>
 
 " use :W to write as root
 command! W w !sudo tee % > /dev/null
