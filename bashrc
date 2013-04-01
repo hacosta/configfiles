@@ -1,6 +1,5 @@
 export PATH=.:~/bin:/home/hacosta/.gem/ruby/1.8/bin:$PATH
 export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '/
-function :h () {  vim --cmd ":silent help $@" --cmd "only"; }
 
 complete -A setopt set
 complete -A user groups id
