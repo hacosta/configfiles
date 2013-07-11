@@ -45,7 +45,6 @@ export HISTCONTROL="ignoredups"
 export EDITOR="vim"
 export HISTSIZE=1000
 export HISTFILESIZE=1000
-export LESSOPEN="|lesspipe.sh %s"
 export HISTCONTROL=ignoredups
 export DEBUG=1
 export LC_TIME=C
