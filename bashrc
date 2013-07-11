@@ -75,7 +75,7 @@ if [ -f /usr/bin/festival ]; then
     alias say='festival --tts'
 fi
 #
-test -n "$DISPLAY" && export TERM=xterm-color
+test -n "$DISPLAY" && export TERM=xterm-256color
 
 case $TERM in
         xterm*|rxvt*|Eterm)
