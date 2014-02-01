@@ -1,4 +1,4 @@
-" Maintainer:	Héctor Acosta <hector.acosta@gazzang.com>
+" Maintainer:	Héctor Acosta <hector.acosta@gmail.com>
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -254,3 +254,4 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
