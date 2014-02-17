@@ -65,10 +65,6 @@ set wildmode=longest:full,full
 "line number
 set number
 
-"TODO: do this per filetype
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
 " saves on make/shell commands
 set autowrite
 
