@@ -4,6 +4,22 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'sjl/gundo.vim'
+Bundle 'vim-scripts/pep8'
+Bundle 'alfredodeza/pytest.vim'
+Bundle 'ervandew/supertab'
+
+filetype plugin indent on
+
 " keep 50 lines of command line history
 set history=700
 
@@ -157,17 +173,9 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-"Should be done before filetype detection
-call pathogen#infect()
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
