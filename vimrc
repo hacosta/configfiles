@@ -34,6 +34,9 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
+" Fix taxlist
+nnoremap ,v <Plug>TaskList
+
 " When vimrc is edited, reload it
 map <leader>e :e! ~/.vimrc<cr>
 
@@ -162,13 +165,11 @@ endfunction
 vnoremap < <gv
 vnoremap > >gv
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
+syntax on
+set hlsearch
 
+filetype off
+"Should be done before filetype detection
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -259,3 +260,24 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
+
+let g:jedi#popup_on_dot = 0
+let g:pep8_map='<leader>8'
+
+
+
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
