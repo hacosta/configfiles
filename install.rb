@@ -20,6 +20,8 @@ def create_links( overwrite=FORCE_OVERWRITE )
             puts "File #{i} exists. Cowardly refusing to overwrite"
         end
     }
+	`git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+	`vim +BundleInstall +qall`
 end
 
 def strip_dashes( str )
