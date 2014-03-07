@@ -161,4 +161,5 @@ for i in /usr/bin/virtualenvwrapper.sh /etc/bash_completion.d/virtualenvwrapper;
 	if [ -f $i ]; then
 		export WORKON_HOME=$HOME/.virtualenvs
 		source $i
-fi
+	fi
+done
