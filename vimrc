@@ -203,7 +203,7 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
 set background=dark
 if has('gui_running')
-	colorscheme jellybeans
+	colorscheme molokai
 	set guifont=
 	set guioptions+=lrbmTLce
 	set guioptions-=lrbmTLce
