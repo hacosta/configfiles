@@ -222,7 +222,7 @@ elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xter
 	set mouse=a
 	set ttymouse=xterm
 	set termencoding=utf-8
-	colorscheme jellybeans
+	colorscheme molokai
 else
 	colorscheme default
 endif
