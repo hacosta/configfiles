@@ -16,7 +16,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'sjl/gundo.vim'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic.git'
 
 filetype plugin indent on
 
