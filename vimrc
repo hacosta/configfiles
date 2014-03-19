@@ -14,9 +14,9 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'sjl/gundo.vim'
-Bundle 'vim-scripts/pep8'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 
@@ -264,12 +264,6 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-
-let g:jedi#popup_on_dot = 0
-let g:pep8_map='<leader>8'
-
-
-
 " Add the virtualenv's site-packages to vim path
 py << EOF
 import os.path
@@ -281,3 +275,10 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+let g:jedi#popup_on_dot = 0
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = "--ignore=E501"
+let g:syntastic_check_on_open = 1
+
+
