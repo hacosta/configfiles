@@ -210,7 +210,7 @@ if has('gui_running')
 	if has('win32')
 		set columns=120
 		set lines=60
-		set guifont=Consolas\ 10
+		set guifont=Consolas:h9:cANSI
 	else
 		set encoding=utf-8
 		set guifont=Droid\ Sans\ Mono\ Slashed\ 8
