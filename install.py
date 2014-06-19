@@ -13,8 +13,8 @@ def pre_hook():
 
 def post_hook():
     # Install all git submodules
-    subprocess.call('git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle')
-    subprocess.call('vim +BundleInstall +qall')
+    subprocess.call('git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle', shell=True)
+    subprocess.call('vim +BundleInstall +qall', shell=True)
 
 def rm_rf(path):
     assert(os.path.exists(path))
