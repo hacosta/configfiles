@@ -3,7 +3,18 @@
 import os
 import os.path
 import shutil
+import subprocess
 import sys
+
+WHITELIST = [sys.argv[0], 'install.rb', '.git', '.gitignore']
+
+def pre_hook():
+    pass
+
+def post_hook():
+    # Install all git submodules
+    subprocess.call('git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle')
+    subprocess.call('vim +BundleInstall +qall')
 
 def rm_rf(path):
     assert(os.path.exists(path))
@@ -24,13 +35,14 @@ def ln_s(source, name, overwrite=False, dryrun=False):
     else:
         sys.stderr.write('%s exists, cowardly refusing to overwrite\n' % name)
 
-
-WHITELIST = [sys.argv[0], 'install.rb', '.git', '.gitignore']
-
-configs = [os.path.abspath(x) for x in os.listdir('.') if not x in WHITELIST]
-overwrite = '--force' in sys.argv
-dryrun = '--dryrun' in sys.argv
-
-if __name__ == '__main__':
+def do_install(configpath='.', overwrite=False, dryrun=False):
+    pre_hook()
+    configs = [os.path.abspath(x) for x in os.listdir(configpath) if not x in WHITELIST]
     for i in configs:
         ln_s(i, os.path.join(os.path.expanduser('~'), '.' + os.path.basename(i)), overwrite, dryrun)
+    post_hook()
+
+if __name__ == '__main__':
+    overwrite = '--force' in sys.argv
+    dryrun = '--dryrun' in sys.argv
+    do_install('.', overwrite, dryrun)
