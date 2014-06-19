@@ -163,3 +163,7 @@ for i in /usr/bin/virtualenvwrapper.sh /etc/bash_completion.d/virtualenvwrapper;
 		source $i
 	fi
 done
+
+if [ -f "$HOME/.creds" ]; then
+	source .creds
+fi
