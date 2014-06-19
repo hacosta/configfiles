@@ -20,7 +20,7 @@ def ln_s(source, name, overwrite=False):
         sys.stderr.write('%s => %s\n' % (name, source))
         os.symlink(source, name)
     else:
-        sys.stderr.write('%s exists, cowardly refusing to overwrite')
+        sys.stderr.write('%s exists, cowardly refusing to overwrite\n')
 
 
 WHITELIST = [sys.argv[0], 'install.rb']
