@@ -25,7 +25,7 @@ def ln_s(source, name, overwrite=False):
 
 WHITELIST = [sys.argv[0], 'install.rb']
 
-configs = [x for x in os.listdir('.') if not x in WHITELIST]
+configs = [os.path.abspath(x) for x in os.listdir('.') if not x in WHITELIST]
 overwrite = '--force' in sys.argv
 
 for i in configs:
