@@ -32,4 +32,4 @@ overwrite = '--force' in sys.argv
 dryrun = '--dryrun' in sys.argv
 
 for i in configs:
-    ln_s(i, os.path.join(os.path.expanduser('~'), '.' + i), overwrite, dryrun)
+    ln_s(i, os.path.join(os.path.expanduser('~'), '.' + os.path.basename(i)), overwrite, dryrun)
