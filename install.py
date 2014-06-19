@@ -15,7 +15,7 @@ def rm_rf(path):
 def ln_s(source, name, overwrite=False):
     if not os.path.exists(name) or overwrite:
         if os.path.exists(name):
-            sys.stderr.write('rm -rf %s\n', name)
+            sys.stderr.write('rm -rf %s\n' % name)
             rm_rf(name)
         sys.stderr.write('%s => %s\n' % (name, source))
         os.symlink(source, name)
