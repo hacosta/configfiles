@@ -29,4 +29,4 @@ configs = [x for x in os.listdir('.') if not x in WHITELIST]
 overwrite = '--force' in sys.argv
 
 for i in configs:
-    ln_s(i, os.path.expanduser('~'), overwrite)
+    ln_s(i, os.path.join(os.path.expanduser('~'), i), overwrite)
