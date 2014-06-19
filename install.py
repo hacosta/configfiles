@@ -25,7 +25,7 @@ def ln_s(source, name, overwrite=False, dryrun=False):
         sys.stderr.write('%s exists, cowardly refusing to overwrite\n' % name)
 
 
-WHITELIST = [sys.argv[0], 'install.rb']
+WHITELIST = [sys.argv[0], 'install.rb', '.git', '.gitignore']
 
 configs = [os.path.abspath(x) for x in os.listdir('.') if not x in WHITELIST]
 overwrite = '--force' in sys.argv
