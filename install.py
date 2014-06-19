@@ -31,5 +31,6 @@ configs = [os.path.abspath(x) for x in os.listdir('.') if not x in WHITELIST]
 overwrite = '--force' in sys.argv
 dryrun = '--dryrun' in sys.argv
 
-for i in configs:
-    ln_s(i, os.path.join(os.path.expanduser('~'), '.' + os.path.basename(i)), overwrite, dryrun)
+if __name__ == '__main__':
+    for i in configs:
+        ln_s(i, os.path.join(os.path.expanduser('~'), '.' + os.path.basename(i)), overwrite, dryrun)
