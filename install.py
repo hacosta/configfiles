@@ -5,7 +5,7 @@ import os.path
 import sys
 
 def ln_s(source, name):
-    sys.stderr.write('%s => %s', name, source)
+    sys.stderr.write('%s => %s\n' % (name, source))
     os.symlink(source, name)
 
 
