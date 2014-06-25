@@ -55,7 +55,9 @@ alias grep="grep --color=auto"
 alias nano="nano -w"
 alias wget="wget --timeout 10"
 alias x="startx"
-alias ls='ls --color=auto -Fh'
+if ls --color -d . &> /dev/null ; then
+	alias ls='ls --color=auto -Fh'
+fi
 alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
