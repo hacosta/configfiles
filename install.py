@@ -18,10 +18,12 @@ def post_hook():
 
 def rm_rf(path):
     assert(os.path.exists(path))
-    if os.path.isdir(path):
+    if os.path.isfile(path):
+        os.remove(path)
+    elif os.path.isdir(path):
         shutil.rmtree(path)
     else:
-        os.remove(path)
+        raise Exception('Not a file or directory. Wat do?')
 
 def ln_s(source, name, overwrite=False, dryrun=False):
     if not os.path.exists(name) or overwrite:
