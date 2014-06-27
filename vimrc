@@ -213,7 +213,7 @@ if has('gui_running')
 		set guifont=Consolas:h9:cANSI
 	else
 		set encoding=utf-8
-		set guifont=Droid\ Sans\ Mono\ Slashed\ 8
+		set guifont=Droid\ Sans\ Mono\ 8
 	endif
 elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xterm') || (&term =~ '^screen-256')
 	set t_Co=256

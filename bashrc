@@ -167,5 +167,9 @@ for i in /usr/bin/virtualenvwrapper.sh /etc/bash_completion.d/virtualenvwrapper;
 done
 
 if [ -f "$HOME/.creds" ]; then
-	source .creds
+	source $HOME/.creds
 fi
+
+title () {
+	printf "\033]0;%s\007\n" "$@"
+}

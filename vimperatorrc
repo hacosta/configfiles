@@ -7,11 +7,9 @@
 " below as well as for other details and tips.
 
 
-" I don't like beeps
-set visualbell
 " useful for command-line completion
-set autocomplete
-set wildmode=list:longest,full
+"set autocomplete
+"set wildmode=list:longest,full
 set gui=none
 set gui=tabs
 
