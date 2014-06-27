@@ -18,7 +18,7 @@ def post_hook():
 
 def rm_rf(path):
     assert(os.path.exists(path))
-    if os.path.isfile(path):
+    if os.path.isfile(path) or  os.path.islink(path):
         os.remove(path)
     elif os.path.isdir(path):
         shutil.rmtree(path)
