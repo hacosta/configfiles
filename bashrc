@@ -118,7 +118,12 @@ ulimit -c 10000000
 str2color()
 {
 	[ -z "$1" ] && return
-	hex=$(echo -n "$1" |md5sum| head -c 2)
+	if which md5 &> /dev/null; then
+		# OS X
+		hex=$(echo -n "$1" |md5| head -c 2)
+	elif which md5sum &> /dev/null; then
+		hex=$(echo -n "$1" |md5sum| head -c 2)
+	fi
 	printf "\e[48;5;0m\e[38;5;%dm" 0x$hex
 }
 
