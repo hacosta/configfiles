@@ -57,6 +57,9 @@ alias wget="wget --timeout 10"
 alias x="startx"
 if ls --color -d . &> /dev/null ; then
 	alias ls='ls --color=auto -Fh'
+else
+	# OS X
+	alias ls='ls -G'
 fi
 alias cp='cp -v'
 alias mv='mv -v'
