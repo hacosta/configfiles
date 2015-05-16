@@ -36,6 +36,7 @@ fi
 for i in /etc/bash_completion /usr/share/bash-completion/bash_completion; do
 	if [ -f "$i" ]; then
 		source "$i"
+		break
 	fi
 done
 
