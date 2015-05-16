@@ -44,6 +44,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic.git'
+Bundle 'wting/rust.vim'
 
 filetype plugin indent on
 
