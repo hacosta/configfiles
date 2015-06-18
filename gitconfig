@@ -8,5 +8,3 @@
 	lol = log --oneline --graph --decorate
 [merge]
 	tool = vimdiff
-[push]
-	default = simple
