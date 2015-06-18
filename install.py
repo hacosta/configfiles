@@ -5,6 +5,35 @@ import os.path
 import shutil
 import subprocess
 import sys
+import logging
+
+
+def gitversion():
+    try:
+        verstr = subprocess.check_output(['git', '--version']).strip().split('version ')[1]
+        return tuple([int(x) for x in verstr.split('.')])
+    except:
+        return (-1, -1, -1)
+
+
+def add_version_dependent_config(filename):
+    """ Adds config directives that only work on certain versions and copies
+    the resulting config to filename.MOD Returns the new filename with the modified
+    contents"""
+    assert(os.path.isfile(filename))
+    new_file = filename + '.mod'
+    shutil.copy(filename, new_file)
+
+    # XXX: generalize this (using templates?)
+    if filename == 'gitconfig':
+        if gitversion() > (2, 0, 0):
+            with open(new_file, 'a') as f:
+                f.write('''
+[push]
+    default = simple
+''')
+    return new_file
+
 
 WHITELIST = [sys.argv[0], 'install.rb', '.git', '.gitignore']
 
@@ -46,7 +75,11 @@ def do_install(configpath='.', overwrite=False, dryrun=False):
     pre_hook()
     configs = [os.path.abspath(x) for x in os.listdir(configpath) if x not in WHITELIST]
     for i in configs:
-        ln_s(i, os.path.join(os.path.expanduser('~'), '.' + os.path.basename(i)), overwrite, dryrun)
+        src = i
+        if os.path.basename(i) == 'gitconfig':
+            logging.info('Processing gitconfig')
+            src = add_version_dependent_config(i)
+        ln_s(src, os.path.join(os.path.expanduser('~'), '.' + os.path.basename(i)), overwrite, dryrun)
     post_hook()
 
 if __name__ == '__main__':
