@@ -275,4 +275,6 @@ let g:syntastic_python_flake8_args = "--ignore=E501"
 let g:syntastic_check_on_open = 1
 
 
-set rnu
+if version >= 703
+  set rnu
+endif
