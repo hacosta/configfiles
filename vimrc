@@ -6,6 +6,9 @@ set nocompatible
 
 filetype off
 
+set shiftwidth=4
+set tabstop=4
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   " Put these in an autocmd group, so that we can delete them easily.
@@ -45,6 +48,7 @@ Bundle 'alfredodeza/pytest.vim'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'wting/rust.vim'
+Bundle 'elzr/vim-json.git'
 
 filetype plugin indent on
 
@@ -214,7 +218,7 @@ if has('gui_running')
 		set guifont=Consolas:h9:cANSI
 	else
 		set encoding=utf-8
-		set guifont=Droid\ Sans\ Mono\ 8
+		set guifont=Droid\ Sans\ Mono\ 10
 	endif
 elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xterm') || (&term =~ '^screen-256')
 	set t_Co=256
