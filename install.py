@@ -1,5 +1,7 @@
 #!/usr/bin/python2
 
+# Should be py2.6 compatible
+
 import os
 import os.path
 import shutil
@@ -27,11 +29,14 @@ def add_version_dependent_config(filename):
     # XXX: generalize this (using templates?)
     if filename == 'gitconfig':
         if gitversion() > (2, 0, 0):
-            with open(new_file, 'a') as f:
+            f = open(new_file, 'a')
+            try:
                 f.write('''
-[push]
-    default = simple
-''')
+    [push]
+        default = simple
+    ''')
+            finally:
+                f.close()
     return new_file
 
 
