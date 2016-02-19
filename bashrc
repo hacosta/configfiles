@@ -50,7 +50,6 @@ export HISTCONTROL=ignoredups
 export DEBUG=1
 export LC_TIME=C
 export PYTHONSTARTUP=~/.pythonrc.py
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dcom.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 
 alias grep="grep --color=auto"
 alias nano="nano -w"
