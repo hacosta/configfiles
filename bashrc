@@ -1,5 +1,5 @@
 export PATH=.:~/bin:/home/hacosta/.gem/ruby/1.8/bin:$PATH
-export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '/
+export PS4='+${BASH_SOURCE}:${LINENO}: '/
 
 complete -A setopt set
 complete -A user groups id
@@ -124,7 +124,8 @@ str2color()
 	elif which md5sum &> /dev/null; then
 		hex=$(echo -n "$1" |md5sum| head -c 2)
 	fi
-	printf "\e[48;5;0m\e[38;5;%dm" 0x$hex
+	printf "\e[38;5;%dm" 0x$hex
+
 }
 
 if command -v reptyr &> /dev/null; then
@@ -162,8 +163,6 @@ rsync_inc()
 	rsync --modify-window=1 --progress -vaz --delete $1/ $2
 }
 
-export DEBEMAIL="Héctor Acosta <hector.acosta@gazzang.com>"
-export DEBFULLNAME="Héctor Acosta"
 host_color=$(str2color $HOSTNAME)
 PS1='\[\e[1;31m\]$(show_error_on_non_0 $?)\[\e[;032m\]\u@\[$host_color\]\h \[\e[0;34m\]$(__git_ps1 2> /dev/null)\[\e[0m\]\w\$ '
 

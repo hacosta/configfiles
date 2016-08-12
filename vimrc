@@ -49,6 +49,7 @@ Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'wting/rust.vim'
 Bundle 'elzr/vim-json.git'
+Bundle 'greyblake/vim-preview'
 
 filetype plugin indent on
 
@@ -275,10 +276,12 @@ EOF
 
 let g:jedi#popup_on_dot = 0
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = "--ignore=E501"
+let g:syntastic_python_flake8_args = "--ignore=E501,E111,E114"
 let g:syntastic_check_on_open = 1
 
 
 if version >= 703
   set rnu
 endif
+
+:nnoremap ,z :!zeal --query "<cword>"&<CR><CR>

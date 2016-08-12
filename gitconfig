@@ -2,9 +2,16 @@
 	ui = true
 [user]
 	name = Hector Acosta
-	email = hector.acosta@gmail.com
+	email = hector.acosta@cloudera.com
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	lol = log --oneline --graph --decorate
+	g = grep --break --heading --line-number
 [merge]
 	tool = vimdiff
+[reviewboard]
+	url = http://review.infra.cloudera.com
+[grep]
+	lineNumber = true
+[push]
+	default = nothing
