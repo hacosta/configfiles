@@ -6,8 +6,8 @@ set nocompatible
 
 filetype off
 
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -26,7 +26,7 @@ if has("autocmd")
   autocmd Syntax * RainbowParenthesesLoadRound
   autocmd Syntax * RainbowParenthesesLoadSquare
   autocmd Syntax * RainbowParenthesesLoadBraces
-  autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4
+  autocmd FileType python setlocal expandtab tabstop=2 shiftwidth=2
   augroup END
 
 au FileType python set omnifunc=pythoncomplete#Complete
