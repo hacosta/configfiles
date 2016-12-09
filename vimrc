@@ -27,6 +27,7 @@ if has("autocmd")
   autocmd Syntax * RainbowParenthesesLoadSquare
   autocmd Syntax * RainbowParenthesesLoadBraces
   autocmd FileType python setlocal expandtab tabstop=2 shiftwidth=2
+  autocmd FileType groovy setlocal expandtab tabstop=2 shiftwidth=2
   augroup END
 
 au FileType python set omnifunc=pythoncomplete#Complete
@@ -50,6 +51,7 @@ Bundle 'scrooloose/syntastic.git'
 Bundle 'wting/rust.vim'
 Bundle 'elzr/vim-json.git'
 Bundle 'greyblake/vim-preview'
+Bundle 'mru.vim'
 
 filetype plugin indent on
 
