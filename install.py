@@ -22,22 +22,16 @@ def add_version_dependent_config(filename):
     """ Adds config directives that only work on certain versions and copies
     the resulting config to filename.MOD Returns the new filename with the modified
     contents"""
-    assert(os.path.isfile(filename))
-    new_file = filename + '.mod'
-    shutil.copy(filename, new_file)
-
     # XXX: generalize this (using templates?)
     if filename == 'gitconfig':
         if gitversion() > (2, 0, 0):
             f = open(new_file, 'a')
-            try:
+            with open(filename, 'a') as f:
                 f.write('''
     [push]
         default = simple
     ''')
-            finally:
-                f.close()
-    return new_file
+    return filename
 
 
 WHITELIST = [sys.argv[0], 'install.rb', '.git', '.gitignore']
