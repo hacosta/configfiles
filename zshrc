@@ -64,9 +64,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-eval $(keychain --eval --quiet id_rsa ~/.ssh/id_work)
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -74,6 +71,7 @@ eval $(keychain --eval --quiet id_rsa ~/.ssh/id_work)
 
 # Preferred editor for local and remote sessions
 export EDITOR=vim
+export DISABLE_AUTO_TITLE='true'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -90,4 +88,10 @@ export EDITOR=vim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias p="sudo pacman"
-alias svim="sudo vim"
+alias svim="sudoedit"
+alias copy="xclip -selection clipboard -in"
+
+source /usr/bin/virtualenvwrapper.sh
+export PATH="$HOME/bin:$PATH"
+
+export QT_LOGGING_RULES=’*=false’

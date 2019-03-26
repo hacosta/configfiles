@@ -34,7 +34,7 @@ def add_version_dependent_config(filename):
     return filename
 
 
-WHITELIST = [sys.argv[0], 'install.rb', '.git', '.gitignore']
+WHITELIST = [sys.argv[0], '.git', '.gitignore']
 
 
 def pre_hook():
@@ -81,7 +81,12 @@ def do_install(configpath='.', overwrite=False, dryrun=False):
         ln_s(src, os.path.join(os.path.expanduser('~'), '.' + os.path.basename(i)), overwrite, dryrun)
     post_hook()
 
-if __name__ == '__main__':
+
+def main():
     overwrite = '--force' in sys.argv
     dryrun = '--dryrun' in sys.argv
     do_install('.', overwrite, dryrun)
+    
+
+if __name__ == '__main__':
+    main()
