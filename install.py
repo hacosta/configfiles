@@ -9,6 +9,7 @@ import subprocess
 import sys
 import logging
 
+THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 
 def gitversion():
     try:
@@ -43,8 +44,9 @@ def pre_hook():
 
 def post_hook():
     # Install all git submodules
-    subprocess.call('git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle', shell=True)
-    subprocess.call('vim +BundleInstall +qall', shell=True)
+    clone_to = os.path.join(THIS_DIR, 'vim/bundle/Vundle.com')
+    subprocess.call('git clone https://github.com/VundleVim/Vundle.vim.git clone_to' % clone_to, shell=True)
+    subprocess.call('vim +PluginInstall +qall', shell=True)
 
 
 def rm_rf(path):
