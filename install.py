@@ -63,10 +63,10 @@ def rm_rf(path):
 def ln_s(source, name, overwrite=False, dryrun=False):
     if not os.path.exists(name) or overwrite:
         if os.path.islink(name) or os.path.exists(name):  # Handle broken symlinks
-            sys.stderr.write('rm -rf %s\n' % name)
+            sys.stdout.write('rm -rf %s\n' % name)
             if not dryrun:
                 rm_rf(name)
-        sys.stderr.write('%s => %s\n' % (name, source))
+        sys.stdout.write('%s => %s\n' % (name, source))
         if not dryrun:
             os.symlink(source, name)
     else:
