@@ -2,6 +2,7 @@
 
 # Should be py2.6 compatible
 
+import argparse
 import os
 import os.path
 import shutil
@@ -84,10 +85,16 @@ def do_install(configpath='.', overwrite=False, dryrun=False):
     post_hook()
 
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--force', '-f', action='store_true', default=False)
+    parser.add_argument('--dry-run', '-n', action='store_true', default=False)
+    return parser.parse_args()
+
+
 def main():
-    overwrite = '--force' in sys.argv
-    dryrun = '--dryrun' in sys.argv
-    do_install('.', overwrite, dryrun)
+    args = parse_args()
+    do_install('.', args.force, args.dryrun)
     
 
 if __name__ == '__main__':
