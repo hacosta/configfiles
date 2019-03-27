@@ -46,7 +46,7 @@ def pre_hook():
 def post_hook():
     # Install all git submodules
     clone_to = os.path.join(THIS_DIR, 'vim/bundle/Vundle.com')
-    subprocess.call('git clone https://github.com/VundleVim/Vundle.vim.git %s' % clone_to, shell=True)
+    subprocess.call('git clone https://github.com/VundleVim/Vundle.vim.git %s' % clone_to, shell=True, stderr=open(os.devnull))
     subprocess.call('vim +PluginInstall +qall', shell=True)
 
 
