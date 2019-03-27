@@ -4,6 +4,24 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set rtp+=~/.vim/bundle/Vundle.com
+call vundle#begin()
+Bundle 'VundleVim/Vundle.vim'
+call vundle#end()
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sjl/gundo.vim'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'wting/rust.vim'
+Plugin 'elzr/vim-json.git'
+Plugin 'greyblake/vim-preview'
+Plugin 'mru.vim'
+
+
 filetype off
 
 set shiftwidth=2
@@ -36,23 +54,6 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'sjl/gundo.vim'
-Bundle 'alfredodeza/pytest.vim'
-Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'wting/rust.vim'
-Bundle 'elzr/vim-json.git'
-Bundle 'greyblake/vim-preview'
-Bundle 'mru.vim'
-
 filetype plugin indent on
 
 " keep 50 lines of command line history
