@@ -12,11 +12,12 @@ import logging
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 
+
 def gitversion():
     try:
         verstr = subprocess.check_output(['git', '--version']).strip().split('version ')[1]
         return tuple([int(x) for x in verstr.split('.')])
-    except:
+    except Exception:
         return (-1, -1, -1)
 
 
@@ -27,7 +28,6 @@ def add_version_dependent_config(filename):
     # XXX: generalize this (using templates?)
     if filename == 'gitconfig':
         if gitversion() > (2, 0, 0):
-            f = open(new_file, 'a')
             with open(filename, 'a') as f:
                 f.write('''
     [push]
@@ -94,8 +94,8 @@ def parse_args():
 
 def main():
     args = parse_args()
-    do_install('.', args.force, args.dryrun)
-    
+    do_install('.', args.force, args.dry_run)
+
 
 if __name__ == '__main__':
     main()
