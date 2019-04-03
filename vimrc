@@ -20,7 +20,9 @@ Plugin 'wting/rust.vim'
 Plugin 'elzr/vim-json.git'
 Plugin 'greyblake/vim-preview'
 Plugin 'mru.vim'
+Plugin 'wannesm/rmvim.vim'
 
+let g:rmvim_cmd = 'gvim'
 
 filetype off
 
@@ -222,7 +224,7 @@ if has('gui_running')
 		set guifont=Consolas:h9:cANSI
 	else
 		set encoding=utf-8
-		set guifont=Droid\ Sans\ Mono\ 10
+		set guifont=monospace
 	endif
 elseif (&term == 'xterm-color') || (&term == 'rxvt-unicode') || (&term =~ '^xterm') || (&term =~ '^screen-256')
 	set t_Co=256

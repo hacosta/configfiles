@@ -91,7 +91,12 @@ alias p="sudo pacman"
 alias svim="sudoedit"
 alias copy="xclip -selection clipboard -in"
 
-source /usr/bin/virtualenvwrapper.sh
+for i in {/usr/bin,/usr/share/virtualenvwrapper}/virtualenvwrapper.sh ; do
+	if [[ -f $i ]]; then
+		source $i
+		break
+	fi
+done
 export PATH="$HOME/bin:$PATH"
 
 export QT_LOGGING_RULES=’*=false’
