@@ -74,8 +74,6 @@ def post_hook():
         subprocess.call('git clone https://github.com/VundleVim/Vundle.vim.git %s' % clone_to, shell=True)
     subprocess.call('vim +PluginInstall +qall', shell=True, stdout=open(os.devnull))
 
-    subprocess.call(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 
 def rm_rf(path):
     assert(os.path.exists(path))
