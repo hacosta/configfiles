@@ -26,6 +26,7 @@ let g:rmvim_cmd = 'gvim'
 
 filetype off
 
+set et
 set shiftwidth=2
 set tabstop=2
 

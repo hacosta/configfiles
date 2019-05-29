@@ -10,6 +10,11 @@ import subprocess
 import sys
 import logging
 
+try:
+    from urllib.request import urlopen
+except:
+    from urllib import urlopen
+
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
@@ -39,8 +44,27 @@ def add_version_dependent_config(filename):
 WHITELIST = [sys.argv[0], '.git', '.gitignore']
 
 
+def download(url, to=None):
+    resp = urlopen(url)
+    if to is None:
+        to = os.path.basename(url)
+    with open(to, 'wb') as f:
+        f.write(resp.read())
+
+
+
+def install_oh_my_zsh():
+    temp = '/tmp/ohmyz.sh'
+    try:
+        download('https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', temp)
+        subprocess.check_call(['sh', temp])
+    finally:
+        os.unlink(temp)
+
+
+
 def pre_hook():
-    pass
+    install_oh_my_zsh()
 
 
 def post_hook():
@@ -49,6 +73,8 @@ def post_hook():
     if not os.path.exists(clone_to):
         subprocess.call('git clone https://github.com/VundleVim/Vundle.vim.git %s' % clone_to, shell=True)
     subprocess.call('vim +PluginInstall +qall', shell=True, stdout=open(os.devnull))
+
+    subprocess.call(sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
 def rm_rf(path):
