@@ -54,6 +54,8 @@ def download(url, to=None):
 
 
 def install_oh_my_zsh():
+    if os.path.isdir(os.path.expandpath('~/.oh-my-zsh')):
+        return
     temp = '/tmp/ohmyz.sh'
     try:
         download('https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh', temp)
@@ -63,11 +65,11 @@ def install_oh_my_zsh():
 
 
 
-def pre_hook():
+def pre_hook(overwirte=False, dryrun=False):
     install_oh_my_zsh()
 
 
-def post_hook():
+def post_hook(overwrite=False, dryrun=False):
     # Install all git submodules
     clone_to = os.path.join(THIS_DIR, 'vim/bundle/Vundle.com')
     if not os.path.exists(clone_to):
@@ -99,7 +101,7 @@ def ln_s(source, name, overwrite=False, dryrun=False):
 
 
 def do_install(configpath='.', overwrite=False, dryrun=False):
-    pre_hook()
+    pre_hook(overwrite, dryrun)
     configs = [os.path.abspath(x) for x in os.listdir(configpath) if x not in WHITELIST]
     for i in configs:
         src = i
@@ -107,7 +109,7 @@ def do_install(configpath='.', overwrite=False, dryrun=False):
             logging.info('Processing gitconfig')
             src = add_version_dependent_config(i)
         ln_s(src, os.path.join(os.path.expanduser('~'), '.' + os.path.basename(i)), overwrite, dryrun)
-    post_hook()
+    post_hook(overwrite, dryrun)
 
 
 def parse_args():
