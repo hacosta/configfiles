@@ -54,7 +54,7 @@ def download(url, to=None):
 
 
 def install_oh_my_zsh():
-    if os.path.isdir(os.path.expandpath('~/.oh-my-zsh')):
+    if os.path.isdir(os.path.expanduser('~/.oh-my-zsh')):
         return
     temp = '/tmp/ohmyz.sh'
     try:
